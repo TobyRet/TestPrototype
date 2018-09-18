@@ -4,6 +4,10 @@ $govuk-global-styles: true;
 // Import GOV.UK Frontend
 @import "node_modules/govuk-frontend/all";
 
+// Import MOJ patterns
+@import "node_modules/govuk-frontend/all";
+@import "node_modules/@mojdigital/pattern-library/all";
+
 // Patterns that aren't in Frontend
 @import "patterns/check-your-answers";
 @import "patterns/task-list";
@@ -13,3 +17,11 @@ $govuk-global-styles: true;
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.dashboard-box {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px 10px;
+  margin: 10px 10px;
+}
+

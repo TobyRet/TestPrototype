@@ -1,0 +1,251 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Allocations
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Allocations
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+{% set allocatedHtml %}
+{{ govukTable({
+  head: [
+    {
+      text: "Prisoner name"
+    },
+    {
+      text: "Prisoner number"
+    },
+    {
+      text: "Arrival date"
+    },
+    {
+      text: "Release date"
+    },
+    {
+      text: "Tier"
+    },
+    {
+      text: "Status change"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "David Francis"
+      },
+      {
+        text: "AE1256789"
+      },
+      {
+        text: "08/09/2018"
+      },
+      {
+        text: "08/09/2020"
+      },
+      {
+        text: "C"
+      },
+      {
+        text: "10/09/2018"
+      }
+    ],
+    [
+      {
+        text: "Steve Limmer"
+      },
+      {
+        text: "BZ1256749"
+      },
+      {
+        text: "09/09/2018"
+      },
+      {
+        text: "09/09/2023"
+      },
+      {
+        text: "A"
+      },
+      {
+        text: "10/09/2018"
+      }
+    ],
+    [
+      {
+        text: "Jenny F'Thablock"
+      },
+      {
+        text: "ZZ1256789"
+      },
+      {
+        text: "11/09/2018"
+      },
+      {
+        text: "08/09/2029"
+      },
+      {
+        text: "A"
+      },
+      {
+        text: "10/09/2018"
+      }
+    ]
+  ]
+}) }}
+{% endset -%}
+
+{% set awaitingAllocationHtml %}
+<h2 class="govuk-heading-l">Awaiting allcation (5)</h2>
+{{ govukTable({
+  head: [
+    {
+      text: "Prisoner name"
+    },
+    {
+      text: "Prisoner number"
+    },
+    {
+      text: "Arrival date"
+    },
+    {
+      text: "Release date"
+    },
+    {
+      text: "Tier"
+    },
+    {
+      text: "Status change"
+    },
+    {
+      text: "Allocate"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "David Francis"
+      },
+      {
+        text: "AE1256789"
+      },
+      {
+        text: "08/09/2018"
+      },
+      {
+        text: "08/09/2020"
+      },
+      {
+        text: "C"
+      },
+      {
+        text: "10/09/2018"
+      },
+      {
+        html: "<a href=\"/offender/AE1256789\">Allocate</a>" 
+      }
+    ],
+    [
+      {
+        text: "Steve Limmer"
+      },
+      {
+        text: "BZ1256749"
+      },
+      {
+        text: "09/09/2018"
+      },
+      {
+        text: "09/09/2023"
+      },
+      {
+        text: "A"
+      },
+      {
+        text: "10/09/2018"
+      },
+      {
+        html: "<a href=\"\">Allocate</a>" 
+      }
+    ],
+    [
+      {
+        text: "Jenny F'Thablock"
+      },
+      {
+        text: "ZZ1256789"
+      },
+      {
+        text: "11/09/2018"
+      },
+      {
+        text: "08/09/2029"
+      },
+      {
+        text: "A"
+      },
+      {
+        text: "10/09/2018"
+      },
+      {
+        html: "<a href=\"\">Allocate</a>" 
+      }
+    ]
+  ]
+}) }}
+{% endset -%}
+
+{% set awaitingTieringHtml %}
+<h2 class="govuk-heading-l">Awaiting tiering (5)</h2>
+{{ govukTable({
+}) }}
+{% endset -%}
+
+{% set awaitingProcessingHtml %}
+<h2 class="govuk-heading-l">Awaiting processing (2)</h2>
+{{ govukTable({
+}) }}
+{% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Allocated (1600)",
+      id: "allocated",
+      panel: {
+        html: allocatedHtml
+      }
+    },
+    {
+      label: "Awaiting allocation (5)",
+      id: "awaiting-allocation",
+      panel: {
+        html: awaitingAllocationHtml
+      }
+    },
+    {
+      label: "Awaiting tiering (5)",
+      id: "awaiting-tiering",
+      panel: {
+        html: awaitingTieringHtml
+      }
+    },
+    {
+      label: "Awaiting processing (2)",
+      id: "awaiting-processing",
+      panel: {
+        html: awaitingProcessingHtml
+      }
+    }
+  ]
+  }) }}
+
+{% endblock %}

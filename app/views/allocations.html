@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Allocations
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Allocations
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter dashboard-box">
+      <h2 class="govuk-heading-m">1600</h2>
+      <p>Allocated</p>
+      <p><a href="/manage#awaiting-allocation">Manage</a></p>
+  </div>
+  <div class="govuk-grid-column-one-quarter dashboard-box">
+      <h2 class="govuk-heading-m">5</h2>
+      <p>Awaiting allocation</p>
+      <p><a href="/allocate">Allocate POM to prisoner</a></p>
+  </div>
+  <div class="govuk-grid-column-one-quarter dashboard-box">
+      <h2 class="govuk-heading-m">5</h2>
+      <p>Awaiting tiering</p>
+      <p><a href="/tiering">Complete prisoner tiering</a></p>
+  </div>
+  <div class="govuk-grid-column-one-quarter dashboard-box">
+      <h2 class="govuk-heading-m">8</h2>
+      <p>Awaiting sentence calculation</p>
+      <p><a href="/prisoners">View prisoners</a></p>
+  </div>
+  <div class="govuk-grid-column-one-quarter dashboard-box">
+      <h2 class="govuk-heading-m">20</h2>
+      <p>Prison offender managers</p>
+      <p><a href="/poms">Add, remove and manage POM details</a></p>
+    </div>
+</div>
+
+{% endblock %}
