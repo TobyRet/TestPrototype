@@ -8,9 +8,16 @@ router.post('/sign-in', function(req, res) {
 
 router.get('/prisoner/:id', function(req, res) {
   let data = {
-    prisoner_name: 'Toby',
-    dob: '24/01/1980',
-    nationality: 'New Zealander'
+    prisonerName: 'Davidson, William',
+    dob: '25/07/1985',
+    nationality: 'Welsh',
+    release_date: '21/05/2020',
+    alerts: '3',
+    mainOffence: 'Burglary',
+    caseAllocation: 'NPS',
+    mappaNominal: 'Yes',
+    tierCalculation: 'C',
+    prisonerAllocation: 'Probation Officer POM'
   }
 
   res.render('prisoner', data)

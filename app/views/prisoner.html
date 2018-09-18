@@ -9,13 +9,223 @@ Allocations
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      Allocations
+      Allocation
     </h1>
   </div>
 </div>
 
+<!-- Prisoner Data -->
+
 <div class="govuk-grid-row">
-  {{ dob }}
+  <div class="govuk-grid-column-one-quarter">
+    <img style="width: 50%;" src="https://cdn-images-1.medium.com/max/1600/1*E1WxYQnh9xwLs6MT8BmhUg.png" alt="Example prisoner profile picture">
+  </div>
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Prisoner name
+        </h3>
+        <p>{{ prisonerName }}</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Date of birth
+        </h3>
+        <p>{{ dob }}</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Nationality
+        </h3>
+        <p>{{ nationality }}</p>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Release date
+        </h3>
+        <p>{{ release_date }}</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Alerts
+        </h3>
+        <p><a href="">{{ alerts }} active alerts</a></p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Main offence
+        </h3>
+        <p>{{ mainOffence }}</p>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Case allocation
+        </h3>
+        <p>{{ caseAllocation }}</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          MAPPA nominal
+        </h3>
+        <p>{{ mappaNominal }}</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Tier calculation
+        </h3>
+        <p>{{ tierCalculation }}</p>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">
+          Prisoner allocation
+        </h3>
+        <p>{{ prisonerAllocation }}</p>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- Instructions -->
+<div style="margin-top: 30px;" class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p><strong>Choose the person you would like to allocate to this
+      prisoner</strong></p>
+    <p>We'll send them an email to let them know about thier new allocation</p>
+  </div>
+</div>
+
+<!-- POM List -->
+<div style="margin-top: 30px;" class="govuk-grid-row">
+  {{ govukTable({
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Select"
+    },
+    {
+      text: "POM name"
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Tier A Cases"
+    },
+    {
+      text: "Tier B Cases"
+    },
+    {
+      text: "Tier C Cases"
+    },
+    {
+      text: "Tier D Cases"
+    },
+    {
+      text: "Working patten"
+    }
+
+  ],
+  rows: [
+    [
+      { 
+        text: '',
+        html: "<input class=\"\" name=\"select\" type=\"radio\" value=\"allocate\">"
+      },
+      {
+        text: "Smith, Sally"
+      },
+      {
+        text: "Probation POM"
+      },
+      {
+        text: "2"
+      },
+      {
+        text: "16"
+      },
+      {
+        text: "1"
+      },
+      {
+        text: "0"
+      },
+      {
+        text: "Full time"
+      }
+    ],
+    [
+      { 
+        text: '',
+        html: "<input class=\"\" name=\"select\" type=\"radio\" value=\"allocate\">"
+      },
+      {
+        text: "Jones, Jamie"
+      },
+      {
+        text: "Probation POM"
+      },
+      {
+        text: "7"
+      },
+      {
+        text: "8"
+      },
+      {
+        text: "3"
+      },
+      {
+        text: "1"
+      },
+      {
+        text: "Full time"
+      }
+    ],
+    [
+      { 
+        text: '',
+        html: "<input class=\"\" name=\"select\" type=\"radio\" value=\"allocate\">"
+      },
+      {
+        text: "Brady, Jacob"
+      },
+      {
+        text: "Probation POM"
+      },
+      {
+        text: "6"
+      },
+      {
+        text: "29"
+      },
+      {
+        text: "4"
+      },
+      {
+        text: "2"
+      },
+      {
+        text: "Full time"
+      }
+    ]
+  ]
+  }) }}
+</div>
+
+<!-- Button -->
+
+<div style="margin-top: 30px;" class="govuk-grid-row">
+
+  {{ govukButton({
+
+    text: "Make assignment"
+
+  }) }}
+</div>
 {% endblock %}
